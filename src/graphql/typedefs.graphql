@@ -1,0 +1,74 @@
+scalar DateTime
+
+# Movie #
+type Movie {
+    id: Int
+    name: String
+    genre: String
+}
+input MovieFilter {
+    id: Int
+    name: String
+    genre: String
+}
+
+# Schedule #
+type Schedule {
+    id: Int
+    showtime: DateTime
+    theatre: Int
+    movie_id: Int
+    name: String
+    genre: String
+}
+input ScheduleFilter {
+    id: Int
+    theatre: Int
+    movie_id: Int
+    name: String
+    genre: String
+}
+
+# Reserve #
+type Reserve {
+    id: Int
+    schedule_id: Int
+    seat_number: Int
+    showtime: DateTime
+    theatre: Int
+    movie_id: Int
+    name: String
+    genre: String
+}
+input ReserveFilter {
+    id: Int
+    schedule_id: Int
+    seat_number: Int
+    theatre: Int
+    movie_id: Int
+    name: String
+    genre: String
+}
+
+# Query #
+type Query {
+    # Movie #
+    movies(filter: MovieFilter): [Movie]
+
+    # Schedule #
+    schedules(filter: ScheduleFilter): [Schedule]
+
+    # Reserve #
+    reserves(filter: ReserveFilter): [Reserve]
+}
+
+# Mutation #
+type Mutation {
+    # Movie #
+    createSchedule(theatre: Int!, movie_id: Int!, showtime: DateTime): Schedule
+    deleteSchedule(id: Int!): Schedule
+
+    # Reserve #
+    createReserve(schedule_id: Int!, seat_number: Int!): Reserve
+    deleteReserve(id: Int!): Reserve
+}

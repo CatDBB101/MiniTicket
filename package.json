@@ -1,0 +1,32 @@
+{
+    "name": "graphqltutorial",
+    "module": "index.ts",
+    "type": "module",
+    "private": true,
+    "devDependencies": {
+        "@graphql-codegen/cli": "^7.1.2",
+        "@graphql-codegen/typescript": "^6.0.2",
+        "@types/bun": "latest",
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.6",
+        "concurrently": "^10.0.3",
+        "drizzle-kit": "^0.31.10"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "scripts": {
+        "codegen": "bunx graphql-codegen",
+        "dev": "bun --watch ./src/index.ts"
+    },
+    "dependencies": {
+        "@apollo/server": "^5.5.1",
+        "@graphql-tools/load-files": "^7.0.1",
+        "@graphql-tools/schema": "^10.0.33",
+        "cors": "^2.8.6",
+        "drizzle-orm": "^0.45.2",
+        "express": "^5.2.1",
+        "graphql": "^16.14.1",
+        "graphql-scalars": "^1.25.0"
+    }
+}
